@@ -1,0 +1,19 @@
+{
+  "Colors": {
+    "Favorite": "Blue"
+  },
+  "ConnectionStrings": {
+    "DutchConnectionString": "Data Source=(localdb)\\ProjectsV13;Database=DutchTreatDb;Integrated Security=True;MultipleActiveResultSets=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  },
+  "Tokens": {
+    "Key": "sdfa; sdfa;asfaesgv;asfs;",
+    "Issuer": "https://localhost:44385",
+    "Audience": "https://localhost:44385"
+  }
+}

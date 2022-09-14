@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <TypeScriptToolsVersion>4.1</TypeScriptToolsVersion>
+    <TypeScriptBuildMode>true</TypeScriptBuildMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\ts\main.ts" />
+    <Content Remove="wwwroot\ts\shopper.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="client\src\app\pages\loginPage.component.ts" />
+    <None Remove="client\src\app\pages\shopPage.component.ts" />
+    <None Remove="client\src\app\router\index.ts" />
+    <None Remove="client\src\app\services\authActivator.service.ts" />
+    <None Remove="client\src\app\services\store.service.ts" />
+    <None Remove="client\src\app\shared\LoginResults.ts" />
+    <None Remove="client\src\app\shared\Order.ts" />
+    <None Remove="client\src\app\shared\Product.ts" />
+    <None Remove="client\src\app\views\cartView.component.ts" />
+    <None Remove="client\src\app\views\productListView.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\pages\loginPage.component.ts" />
+    <TypeScriptCompile Include="client\src\app\pages\shopPage.component.ts" />
+    <TypeScriptCompile Include="client\src\app\router\index.ts" />
+    <TypeScriptCompile Include="client\src\app\services\authActivator.service.ts" />
+    <TypeScriptCompile Include="client\src\app\services\store.service.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\LoginResults.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\Order.ts" />
+    <TypeScriptCompile Include="client\src\app\shared\Product.ts" />
+    <TypeScriptCompile Include="client\src\app\views\cartView.component.ts" />
+    <TypeScriptCompile Include="client\src\app\views\productListView.component.ts" />
+    <TypeScriptCompile Include="wwwroot\ts\main.ts" />
+    <TypeScriptCompile Include="wwwroot\ts\shopper.ts" />
+  </ItemGroup>
+	<Target Name="MyPublishScripts" BeforeTargets="BeforePublish">
+		<Exec Command="npm install" />
+		<Exec Command="gulp" />
+		<Exec Command="npm install" WorkingDirectory=".\\client" />
+		<Exec Command="ng build ----configuration production" WorkingDirectory=".\\client" />
+	</Target>
+</Project>

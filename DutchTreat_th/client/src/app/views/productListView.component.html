@@ -1,0 +1,25 @@
+﻿<!--<div>
+    <ul>
+        <li *ngFor="let p of products">{{p.title}}:${{p.price}} </li>
+
+    </ul>
+</div>-->
+<p>Count:{{products.length}};</p>
+<div class="row">
+   
+    
+    <div class="col-md-3" *ngFor="let p of products">
+        <div class="border bg-light rounded p-1">
+            <img src="/img/{{p.artId}}.jpg" class="img-fluid product-image " alt="{{p.artist}}" />
+            <h3>{{p.category}} -{{p.size}}</h3>
+            <ul class="products-props">
+                <li>Price: ${{p.price}}</li>
+                <li>Artist: {{p.artist}}</li>
+                <li>Title: {{p.title}} </li>
+                <li>Description:{{ p.artDescription}}</li>
+            </ul>
+            <button id="buyButton" class="btn btn-success" (click)="store.addToOrder(p)">Buy</button>
+        </div>
+    </div>
+    
+</div>
